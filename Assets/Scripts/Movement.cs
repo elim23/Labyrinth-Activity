@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
         float horizontalMove = Input.GetAxis("Horizontal");
         float verticalMove = Input.GetAxis("Vertical");
         
+        
         //Apply a force to this Rigidbody in direction of this GameObjects up axis
         if (Input.GetKey(KeyCode.UpArrow))
         {
