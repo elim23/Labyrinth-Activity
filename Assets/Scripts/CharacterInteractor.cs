@@ -17,6 +17,14 @@ public class CharacterInteractor : MonoBehaviour
     void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
+
+        if (_numFound > 0 ){
+            var interactable = _colliders[0].GetComponent<ObjectInteractable>();
+
+            if (interactable != null && Input.GetKeyDown(KeyCode.F)){
+                interactable.Interact(this);
+            }
+        }
     }
 
     void OnDrawGizmos(){
