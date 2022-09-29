@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis ("Horizontal");
         float vertical = Input.GetAxis ("Vertical");
         
-        Vector3 move = -transform.right * horizontal + (-transform.forward) * vertical;
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * turnSpeed * Time.deltaTime);
     }
 }
