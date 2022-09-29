@@ -5,29 +5,18 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Camera cam;
     public CharacterController controller;
-    public float turnSpeed = 20f;
-    public float gravity = 9.81f;
-
-    Rigidbody m_Rigidbody;
-    Vector3 m_Movement;
-    Quaternion m_Rotation = Quaternion.identity;
+    public float turnSpeed = 10f;
 
     void Start ()
     {
-        m_Rigidbody = GetComponent<Rigidbody> ();
+        cam = Camera.main;
     }
 
     void FixedUpdate ()
     {
-        float horizontal = Input.GetAxis ("Horizontal");
-        float vertical = Input.GetAxis ("Vertical");
-        
-        m_Movement.Set(horizontal, 0f, vertical);
-        m_Movement.Normalize ();
 
-        Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
-        m_Rotation = Quaternion.LookRotation (desiredForward);
     }
 
     void Update ()
